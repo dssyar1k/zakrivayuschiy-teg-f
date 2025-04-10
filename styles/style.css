@@ -11,6 +11,298 @@
 */
 
 .page {
+  font-family: var(--main-font);
+  font-variation-settings: "wght" var(--text-weight);
+  background-color: var(--page-background-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px auto;
+  background-color: var(--main-color);
+  inline-size: var(--block-width);
+  font-family: var(--accent-font);
+  border: var(--main-border);
+  padding: clamp(120px, 0.75vw + 117.2px, 128px) 0;
+}
+
+.header__logo {
+  font-weight: var(--text-weight);
+  font-size: clamp(49px, 3.4vw + 36.25px, 65px);
+  text-transform: uppercase;
+  margin-block-end: 20px;
+  color: var(--accent-color);
+}
+
+.header__logo-title {
+  color: var(--accent-color);
+  font-weight: var(--text-weight);
+  font-size: clamp(14px, 0.8vw + 11px, 23px);
+  text-transform: uppercase;
+}
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+  align-items: center;
+}
+
+.card__list-item {
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+  background-color: var(--main-color);
+  border: var(--main-border);
+  inline-size: var(--block-width);
+}
+
+.card__title {
+  margin: 3.5px 10px;
+  font-family: inherit;
+  font-variation-settings: "wght" var(--title-weight);
+  font-size: var(--main-font-size);
+  color: inherit;
+  vertical-align: middle;
+}
+
+.card__image {
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__image-label {
+  position: absolute;
+  inset-block-start: 27px;
+  inset-inline-end: clamp(13px, 1.315vw + 0.504rem, 27px);
+  display: flex;
+  justify-content: end;
+  font-family: var(--accent-font);
+  font-weight: inherit;
+  font-size: 14px;
+  opacity: 0.5;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  mix-blend-mode: hard-light;
+}
+
+@supports (-webkit-text-stroke: 1px #fff) {
+  .card__image-label {
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: none;
+  }
+}
+
+.image {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-block-start: var(--main-border);
+  border-block-end: var(--main-border);
+}
+
+.image__filter-blur {
+  filter: blur(1px);
+}
+
+.image__filter-grayscale {
+  filter: grayscale(70%);
+}
+
+.image__filter-invert {
+  filter: invert(70%);
+}
+
+.image__filter-brightness {
+  filter: brightness(290%);
+}
+
+.image__filter-sepia {
+  filter: sepia(50%);
+}
+
+.image__filter-hue-rotate {
+  filter: hue-rotate(0.5turn);
+}
+
+.image__filter-contrast-brightness {
+  filter: contrast(150%) brightness(130%);
+}
+
+.card__content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card__content-text {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.card__text {
+  font-family: inherit;
+  font-variation-settings: inherit;
+  font-size: var(--main-font-size);
+  font-weight: var(--text-weight);
+  line-height: 21px;
+}
+
+.button {
+  position: relative;
+  background-color: var(--main-color);
+  border: var(--main-border);
+  display: flex;
+  justify-content: center;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card__button {
+  display: flex;
+  justify-content: end;
+  gap: 7px;
+}
+
+.card__icon-button {
+  position: relative;
+  padding: 0;
+  background-color: var(--main-color);
+  display: flex;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: var(--main-border);
+}
+
+.card__like-button {
+  padding: 10.5px 0;
+  inline-size: 130px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 4px 4px 0 0 var(--accent-color);
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+}
+
+.button:hover::after {
+  transform: scaleX(1);
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-weight: inherit;
+  font-size: 14px;
+  line-height: 90%;
+}
+
+.main__button {
+  margin: 50px auto clamp(100px, 0.282vw + 6.184rem, 103px);
+  inline-size: clamp(310px, 2.723vw + 18.737rem, 339px);
+  block-size: clamp(51px, 5.9762rem + -3.0986vw, 84px);
+  background-color: var(--main-color);
+  align-items: center;
+  gap: 8px;
+}
+
+.button__icon {
+  stroke: var(--main-color);
+  fill: var(--main-color);
+  width: clamp(21px, 1.904rem + -0.657vw, 28px);
+  height: clamp(21px, 1.904rem + -0.657vw, 28px);
+}
+
+.button__text,
+.button__icon {
+  position: relative;
+  z-index: 1;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.main__dialog {
+  position: fixed;
+  inset: 0;
+}
+
+.main__dialog[open] {
+  padding: 28px 30px;
+  inline-size: clamp(341px, 1.127vw + 21.048rem, 353px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.main__dialog::backdrop {
+  background-color: var(--accent-color);
+  opacity: 0.75;
+}
+
+.dialog_content {
+  display: flex;
+  gap: 20px;
+}
+
+.dialog__icon {
+  align-self: center;
+  width: 39px;
+  height: 39px;
+}
+
+.dialog__text {
+  inline-size: clamp(198px, 3.38vw + 11.583rem, 234px);
+  font-family: var(--accent-font);
+  font-weight: var(--text-weight);
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.close-button {
+  padding: 10.5px 0;
+  inline-size: 100%;
+  align-items: center;
+  background-color: var(--main-color);
+  text-transform: uppercase;
+}
+
+@media (width < 376px) {
+  .main__button {
+    flex-direction: column;
+  }
 }
