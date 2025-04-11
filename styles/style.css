@@ -34,7 +34,7 @@
 }
 
 .header__logo {
-  font-weight: var(--text-weight);
+  font-variation-settings: "wght" var(--text-weight);
   font-size: clamp(49px, 3.4vw + 36.25px, 65px);
   text-transform: uppercase;
   margin-block-end: 20px;
@@ -43,8 +43,8 @@
 
 .header__logo-title {
   color: var(--accent-color);
-  font-weight: var(--text-weight);
-  font-size: clamp(14px, 0.8vw + 11px, 23px);
+  font-variation-settings: "wght" var(--text-weight);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase;
 }
 
@@ -100,14 +100,16 @@
 }
 
 .image {
-  position: relative;
   display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-  object-position: center;
+  box-sizing: content-box;
   border-block-start: var(--main-border);
   border-block-end: var(--main-border);
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  position: relative;
+  max-block-size: clamp(371px, calc(371px + (100vw - 375px) * 0.30516), 696px);
+  block-size: auto;
 }
 
 .image__filter-blur {
@@ -154,10 +156,9 @@
 
 .card__text {
   font-family: inherit;
-  font-variation-settings: inherit;
+  font-variation-settings: "wght" var(--text-weight);
   font-size: var(--main-font-size);
-  font-weight: var(--text-weight);
-  line-height: 21px;
+  line-height: 117%;
 }
 
 .button {
@@ -204,7 +205,7 @@
 }
 
 .button:focus-visible {
-  box-shadow: 4px 4px 0 0 var(--accent-color);
+  box-shadow: 2px 2px 0 0 var(--accent-color);
 }
 
 .button::after {
